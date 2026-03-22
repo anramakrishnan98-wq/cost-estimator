@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Construction Cost Calculator</title>
+</head>
+<body style="font-family: Arial; background:#f5f5f5; text-align:center;">
+
+<h1>🏗️ Construction Cost Calculator</h1>
+
+<div style="background:white; padding:20px; width:300px; margin:auto; border-radius:10px;">
+
+<form method="POST">
+
+    <input type="number" name="area" placeholder="Area (sq.ft)" required><br><br>
+
+    <input type="number" name="floors" placeholder="Number of Floors" required><br><br>
+
+    <select name="location">
+        <option value="chennai">Chennai</option>
+        <option value="bangalore">Bangalore</option>
+        <option value="hyderabad">Hyderabad</option>
+    </select><br><br>
+
+    <button type="submit">Calculate</button>
+
+</form>
+
+</div>
+
+{% if result %}
+    <div style="margin-top:20px;">
+        <h2>Cost Breakdown</h2>
+        <p>Material Cost: ₹ {{ result.material_cost }}</p>
+        <p>Labor Cost: ₹ {{ result.labor_cost }}</p>
+        <p>GST (18%): ₹ {{ result.gst }}</p>
+        <h3>Total Cost: ₹ {{ result.total_cost }}</h3>
+    </div>
+{% endif %}
+
+<br>
+<a href="/admin">Go to Admin Dashboard</a>
+
+</body>
+</html>
